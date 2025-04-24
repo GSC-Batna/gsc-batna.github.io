@@ -1,0 +1,90 @@
+body {
+    --color-bg: rgba(1,4,9,1);
+    --color-bg2: linear-gradient(0deg, rgb(5 14 51), rgb(5 8 10) 55%);
+    --color-text: #c9d1d9;
+    --color-text-subtle: #8b949e;
+
+    padding: 0; margin: 0;
+    background: var(--color-bg);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;   
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* System font stack */
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --color-bg: #161b22; /* Terminal background */
+    --color-text: #c9d1d9; /* Terminal text color */
+    --color-text-subtle: #8b949e; /* Subtle text color */
+}
+
+[data-termynal] {
+    width: 770px;
+    max-width: 100%;
+    background: var(--color-bg2);
+    color: var(--color-text);
+    font-size: 16px; /* Font size */
+    font-family: 'Fira Code', 'Courier New', Courier, monospace; /* Monospace font for terminal */
+    border: 1px solid #30363d; /* Dark border */
+    border-radius: 6px; /* Rounded corners */
+    padding: 20px; /* Padding */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    position: relative;
+    box-sizing: border-box;
+    height: 400px; /* Fixed height for the terminal */
+    overflow-y: hidden; /* Hide scrollbar */
+}
+
+[data-termynal]::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+[data-ty] {
+    display: block;
+    line-height: 1.5; /* Adjusted line height */
+}
+
+[data-ty]:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+}
+
+[data-ty="input"]:before,
+[data-ty-prompt]:before {
+    margin-right: 0.75em;
+    color: var(--color-text-subtle);
+}
+
+[data-ty="input"]:before {
+    content: '|'; /* Command prompt symbol */
+}
+
+[data-ty][data-ty-prompt]:before {
+    content: attr(data-ty-prompt);
+}
+
+[data-ty-cursor]:after {
+    content: attr(data-ty-cursor);
+    font-family: monospace;
+    margin-left: 0.5em;
+    -webkit-animation: blink 1s infinite;
+            animation: blink 1s infinite;
+}
+
+/* Cursor animation */
+@-webkit-keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
